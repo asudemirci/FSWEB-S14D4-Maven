@@ -35,13 +35,13 @@ public class MainTest {
     @DisplayName("Subclasslar Superclass değişkenlerinin değerlerine ulaşabiliyor mu?")
     @Test
     public void testProductForSaleAccessModifiers() throws NoSuchFieldException {
-        assertEquals(bread.getType(), "Test");
-        assertEquals(bread.getPrice(), 10);
-        assertEquals(bread.getDescription(), "Test Bread");
+        assertEquals("Test", bread.getType());
+        assertEquals(10, bread.getPrice());
+        assertEquals("Test Bread", bread.getDescription());
 
-        assertEquals(chocolate.getType(), "Test");
-        assertEquals(chocolate.getPrice(), 10);
-        assertEquals(chocolate.getDescription(), "Test Chocolate");
+        assertEquals("Test", chocolate.getType());
+        assertEquals(10, chocolate.getPrice());
+        assertEquals("Test Chocolate", chocolate.getDescription());
     }
 
     @DisplayName("Tüm sınıflar doğru sınıftan türüyorlar mı?")
@@ -55,16 +55,16 @@ public class MainTest {
     @DisplayName("getSalesPrice doğru sonuçlar üretiyor mu?")
     @Test
     public void testGetSalesPrice() throws NoSuchFieldException {
-        assertEquals(bread.getSalesPrice(3), 30);
-        assertEquals(chocolate.getSalesPrice(5), 50);
-        assertEquals(coke.getSalesPrice(4), 40);
+        assertEquals(30, bread.getSalesPrice(3));
+        assertEquals(50, chocolate.getSalesPrice(5));
+        assertEquals(40, coke.getSalesPrice(4));
     }
 
     @DisplayName("showDetails methodu tanımlanmış mı?")
     @Test
     public void testShowDetails() throws NoSuchMethodException {
         Method showDetailsMethod = bread.getClass().getDeclaredMethod("showDetails");
-        assertEquals(showDetailsMethod.getModifiers(), 1);
+        assertEquals(1, showDetailsMethod.getModifiers());
     }
 
     @DisplayName("Troll sınıfı doğru değişkenlere tiplerine sahip mi ?")
@@ -74,14 +74,14 @@ public class MainTest {
         assertThat(troll.getHitPoints(), instanceOf(Integer.class));
         assertThat(troll.getDamage(), instanceOf(Double.class));
 
-        assertEquals(troll.getName(), "Shrek");
-        assertEquals(troll.getHitPoints(), 1000);
-        assertEquals(troll.getDamage(), 100);
+        assertEquals("Shrek", troll.getName());
+        assertEquals(1000, troll.getHitPoints());
+        assertEquals(100, troll.getDamage());
     }
 
     @DisplayName("attack methodu doğru çalışıyor mu ?")
     @Test
     public void testAttackMethod() {
-       assertEquals(troll.attack(), 155.0);
+       assertEquals(155.0, troll.attack());
     }
 }
